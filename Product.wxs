@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*"
+			 Name="Linkja Crypto"
+			 Language="1033"
+			 Version="1.0.0.0"
+			 Manufacturer="Cook County Health"
+			 UpgradeCode="270735C7-5176-44EE-BEE9-B298A3A7A2BF">
+		<Package Compressed="yes"
+				 InstallPrivileges="elevated"
+				 InstallScope="perMachine"
+				 Manufacturer="Cook County Health"
+				 Description="Linkja Crypto Library and Dependencies Installer"
+				 Keywords="Medical, Record, Disambiguation, Linkage, Deidentification, Cryptography, Hashing"
+				 Comments="(c) 2023 Cook County Health"/>
+		<MediaTemplate EmbedCab="yes"/>
+		<Icon Id="ICON_LinkjaIco" SourceFile="linkja.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="linkja.ico" />
+		
+		<!--Directory Structure-->
+		<Directory Id="TARGETDIR"
+				   Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="Linkja"
+						   Name="Linkja">
+					<Directory Id="LinkjaCryptoInstallerDir"
+							   Name="Linkja Crypto Installer">
+						
+					</Directory>
+				</Directory>
+			</Directory>
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="StartMenuShortcutsDir"
+						   Name="Linkja"/>
+			</Directory>
+		</Directory>
+		
+		<!--Components-->
+		<DirectoryRef Id="LinkjaCryptoInstallerDir">
+			<Component Id="CMP_LinkjaCryptoGUIExe"
+								   Guid="F0120530-55F1-4B63-A7C2-10B14C0AD7B4">
+				<File Id="FILE_LinkjaCryptoGUIExe"
+					  Source="LinkjaCryptoGUI.exe"
+					  ReadOnly="yes"
+					  KeyPath="yes"/>
+			</Component>
+			<Component Id="CMP_InstallDependenciesExe"
+								   Guid="91FE0974-2680-466C-B103-7176A089708A">
+				<File Id="FILE_InstallDependenciesExe"
+					  Source="install_dependencies.exe"
+					  ReadOnly="yes"
+					  KeyPath="yes"/>
+			</Component>
+			<Component Id="CMP_LinkjaCompileBat"
+								   Guid="E6325709-0256-4AC0-A74A-F1A3586CDF1A">
+				<File Id="FILE_LinkjaCompileBat"
+					  Source="linkja_compile.bat"
+					  ReadOnly="yes"
+					  KeyPath="yes"/>
+			</Component>
+			<Component Id="CMP_LinkjaIco"
+								   Guid="F5B52363-4071-44F7-8C7B-5517999629F7">
+				<File Id="FILE_LinkjaIco"
+					  Source="linkja.ico"
+					  ReadOnly="yes"
+					  KeyPath="yes"/>
+			</Component>
+		</DirectoryRef>
+		
+		<!--Start Menu Shortcuts-->
+		<DirectoryRef Id="StartMenuShortcutsDir">
+			
+			<Component Id="CMP_StartMenuShortcutsFolder"
+						Guid="0C82B89A-2E1F-47AA-B512-7DFA01370037">
+				<Shortcut Id="LinkjaCryptoShortcut"
+						  Name="Linkja Crypto"
+						  Description="Access Linkja Crypto Library Here"
+						  Target="[Linkja]Linkja Crypto Installer\LinkjaCryptoGUI.exe"
+						  Icon="ICON_LinkjaIco"/>
+				<RemoveFolder Id="RemoveStartMenuShortcutsDir"
+							  On="uninstall"/>
+				<RegistryValue Root="HKCU"
+							   Key="Software\Microsoft\LinkjaDependenciesInstaller"
+							   Name="installed"
+							   Type="integer"
+							   Value="1"
+							   KeyPath="yes"/>
+			</Component>
+		</DirectoryRef>
+		<!--Features-->
+		<Feature Id="DependenciesInstaller"
+				 Title="Linkja Crypto Library Compiler Dependencies"
+				 Level="1">
+			<ComponentRef Id="CMP_LinkjaCryptoGUIExe"/>
+			<ComponentRef Id="CMP_InstallDependenciesExe"/>
+			<ComponentRef Id="CMP_LinkjaCompileBat"/>
+			<ComponentRef Id="CMP_LinkjaIco"/>
+			<ComponentRef Id="CMP_StartMenuShortcutsFolder"/>	
+		</Feature>
+		<!--User Interface-->
+		<UIRef Id="WixUI_Minimal"/>
+		<WixVariable Id="WixUILicenseRtf"
+				     Value="lgpl-3.0.rtf" />					  
+	</Product>
+</Wix>

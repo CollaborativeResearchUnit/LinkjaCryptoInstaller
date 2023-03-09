@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "LinkjaCryptoInstaller", "LinkjaCryptoInstaller.wixproj", "{5367EC93-4423-4DF0-AC6C-618F07E529BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5367EC93-4423-4DF0-AC6C-618F07E529BE}.Debug|x86.ActiveCfg = Debug|x86
+		{5367EC93-4423-4DF0-AC6C-618F07E529BE}.Debug|x86.Build.0 = Debug|x86
+		{5367EC93-4423-4DF0-AC6C-618F07E529BE}.Release|x86.ActiveCfg = Release|x86
+		{5367EC93-4423-4DF0-AC6C-618F07E529BE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {265BB9BD-20E9-4154-B5C8-F3DFFBFC89F1}
+	EndGlobalSection
+EndGlobal
