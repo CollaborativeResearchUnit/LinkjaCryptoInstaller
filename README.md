@@ -11,7 +11,7 @@ Go to Linkja -> Linkja Crypto in the Start Menu and click the "Install Dependenc
 A command line window will open, running a script that downloads from the Internet and installs required programs to compile the Linkja Crypto library. Once the required programs are downloaded, Visual Studio will be installed (you will be prompted to press Enter to initiate the installation). The Visual Studio installer window will open--please do not change any settings, as the correct components are already checked. Click the "Install" or "Continue" buttons as appropriate.
 
 The Dependency Installer will finish, and the Linkja Crypto GUI will then close.
-Re-open it and click the "Compile Linkja Crypto" to compile the unique `linkjacrypto.dll` library for your project. Each time this button is clicked, it deletes the previous `linkjacrypto.dll` file and compiles a new, unique one.                
+Re-open it and click the "Build Linkja Crypto Library" to compile the unique `linkjacrypto.dll` library for your project. Each time this button is clicked, it deletes the previous `linkjacrypto.dll` file and compiles a new, unique one.                
 
 ## Components
 ### Linkja Crypto GUI
