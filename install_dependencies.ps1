@@ -65,8 +65,8 @@ Get-LinkjaInstaller "Eclipse Temurin JDK" "https://github.com/adoptium/temurin11
 
 $OpenSSLPrevInstalled = ((gp HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*).DisplayName -Match "OpenSSL").Length -gt 0
 Read-PrevInstalled "OpenSSL" $OpenSSLPrevInstalled 
-$OpenSSLDestPath = "$Env:Programfiles\Linkja\Win64OpenSSL-1_1_1v.msi"
-Get-LinkjaInstaller "OpenSSL" "https://slproweb.com/download/Win64OpenSSL-1_1_1v.msi" $OpenSSLDestPath
+$OpenSSLDestPath = "$Env:Programfiles\Linkja\Win64OpenSSL-3_3_1.msi"
+Get-LinkjaInstaller "OpenSSL" "https://slproweb.com/download/Win64OpenSSL-3_3_1.msi" $OpenSSLDestPath
 
 $LinkjaCryptoDestPath = "$Env:Programfiles\Linkja\master.zip"
 Get-LinkjaInstaller "Linkja Crypto Source Code" "https://github.com/linkja/linkja-crypto/archive/refs/heads/master.zip" $LinkjaCryptoDestPath
